@@ -19,6 +19,8 @@ public class CameraController : MonoBehaviour
     private void Start()
     {
         Screen.SetResolution(1280, 720, false);
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = -1;
     }
 
     void Update()
