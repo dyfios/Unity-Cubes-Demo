@@ -219,7 +219,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1121687433}
   - component: {fileID: 1121687434}
-  - component: {fileID: 1121687432}
   m_Layer: 0
   m_Name: Cube Loader
   m_TagString: Untagged
@@ -227,23 +226,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1121687432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121687431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9e720040f3bcf4a95411b25b3314de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 4702861883952692454, guid: ca2c5ef2116ae964ea11cb58ccc3da6d,
-    type: 3}
-  numBoxes: {x: 48, y: 48, z: 48}
-  boxSpacing: {x: 1, y: 1, z: 1}
-  boxSize: 1
 --- !u!4 &1121687433
 Transform:
   m_ObjectHideFlags: 0
@@ -265,7 +247,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121687431}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15836b18c37ca3942891de769f794894, type: 3}
   m_Name: 

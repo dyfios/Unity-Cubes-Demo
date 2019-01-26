@@ -10,8 +10,11 @@ EditorBuildSettings:
     guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
-    guid: 454c078dd70a4b6489634116b22d5ce0
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Cubes.unity
+    path: Assets/Scenes/Cubes-Instanced.unity
     guid: 16086fa252b0aac42a5726a11b28720f
+  - enabled: 0
+    path: Assets/Scenes/Cubes.unity
+    guid: bbf074f851965c147a5d7263ccc25dae
   m_configObjects: {}
