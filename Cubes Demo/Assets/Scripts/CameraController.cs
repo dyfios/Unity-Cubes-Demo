@@ -1,13 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Timers;
+using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     private enum MovementState { None, Positive, Negative };
 
-    [Tooltip("Time between movement steps (in seconds)")]
-    public float timeBetweenSteps = 0.05f;
+    [Tooltip("Time between movement steps")]
+    public float timeBetweenSteps = 0.02f;
 
-    public float cameraRotationSpeed = 2;
+    public float cameraRotationSpeed = 6;
 
     private float movementTimer = 0,
                   movementSpeed = 1;
@@ -16,6 +18,9 @@ public class CameraController : MonoBehaviour
     private float cameraYaw = 0,
                   cameraPitch = 0;
 
+    private float verticalSpeed = 0,
+                  horizontalSpeed = 0;
+
     private void Start()
     {
         Screen.SetResolution(1280, 720, false);
@@ -23,7 +28,39 @@ public class CameraController : MonoBehaviour
         Application.targetFrameRate = -1;
     }
 
-    void Update()
+    int hCount = 0, vCount = 0;
+    private void Update()
+    {
+        float newH = Input.GetAxis("Mouse X");
+        if (newH != 0)
+        {
+            horizontalSpeed = newH;
+        }
+        else
+        {
+            if (hCount++ > 32)
+            {
+                horizontalSpeed = 0;
+                hCount = 0;
+            }
+        }
+
+        float newV = Input.GetAxis("Mouse Y");
+        if (newV != 0)
+        {
+            verticalSpeed = newV;
+        }
+        else
+        {
+            if (vCount++ > 32)
+            {
+                verticalSpeed = 0;
+                vCount = 0;
+            }
+        }
+    }
+
+    private void FixedUpdate()
     {
         // Set speed to 1 m/s; 10 m/s if shift key held.
         movementSpeed = (Input.GetKey(KeyCode.LeftShift)
@@ -98,8 +135,8 @@ public class CameraController : MonoBehaviour
         }
 
         // Adjust the rotation of the camera.
-        cameraYaw += cameraRotationSpeed * Input.GetAxis("Mouse X");
-        cameraPitch -= cameraRotationSpeed * Input.GetAxis("Mouse Y");
+        cameraYaw += cameraRotationSpeed * horizontalSpeed;
+        cameraPitch -= cameraRotationSpeed * verticalSpeed;
         transform.eulerAngles = new Vector3(cameraPitch, cameraYaw);
     }
 }
